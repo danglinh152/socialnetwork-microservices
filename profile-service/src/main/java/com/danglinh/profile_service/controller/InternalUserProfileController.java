@@ -20,5 +20,4 @@ public class InternalUserProfileController {
             @RequestBody UserProfileCreationReq userProfileCreationReq) {
         return ResponseEntity.ok(userProfileService.createUserProfile(userProfileCreationReq));
     }
-
 }
