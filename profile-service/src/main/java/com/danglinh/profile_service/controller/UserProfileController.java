@@ -16,17 +16,6 @@ public class UserProfileController {
         this.userProfileService = userProfileService;
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
-
-    @PostMapping("/user-profile")
-    public ResponseEntity<UserProfileRes> createUserProfile(
-            @RequestBody UserProfileCreationReq userProfileCreationReq) {
-        return ResponseEntity.ok(userProfileService.createUserProfile(userProfileCreationReq));
-    }
-
     @GetMapping("/user-profile/{id}")
     public ResponseEntity<UserProfile> getUserProfile(@PathVariable String id) {
         return ResponseEntity.ok(userProfileService.getUserProfileById(id));
