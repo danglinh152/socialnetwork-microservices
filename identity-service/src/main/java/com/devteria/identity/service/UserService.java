@@ -41,7 +41,7 @@ public class UserService {
     UserProfileMapper userProfileMapper;
     UserProfileClient userProfileClient;
 
-    public UserResponse createUser(UserCreationRequest request) {
+    public UserProfileRes createUser(UserCreationRequest request) {
         if (userRepository.existsByUsername(request.getUsername())) throw new AppException(ErrorCode.USER_EXISTED);
 
         User user = userMapper.toUser(request);
@@ -63,7 +63,7 @@ public class UserService {
 
         log.info(String.valueOf(userProfileRes));
 
-        return userMapper.toUserResponse(userRepository.save(user));
+        return userProfileRes;
     }
 
     public UserResponse getMyInfo() {
